@@ -29,7 +29,7 @@ double node_voltage[15];
 double rst_cur[15];
 //resister_data data;
 //--------------------------------------------
-vector<resister_data>my_vector(15);//³Ì¤jªºvector 
+vector<resister_data>my_vector(15);//æœ€å¤§çš„vector 
 resister_data temp;
 string find_unit_amp(double ans){
 	if(unit_input=="K"){
@@ -163,7 +163,7 @@ void calculation (int stage_n,double v_all){
 		node_voltage[i]=node_voltage[i-1]-my_vector[i].I_rs_up*rs_idv_sum[i];
 		//cout<<"node_voltage[i]"<<node_voltage[i]<<endl;
 	}
-	//----------------------------¿é¥X-------------------------------------- 
+	//----------------------------è¼¸å‡º-------------------------------------- 
 	cout<<"Calculating... \nThe result is successfully calculated!"<< endl;
     cout<<"**************************************"<< endl;        
 	cout<<"**           <<voltage>>            **"<< endl;
@@ -204,7 +204,7 @@ void calculation (int stage_n,double v_all){
 void swap_stage(int stage_n){
 	int stage_1_2,stage_2_2;
 	int stage_1,stage_2;
-	//-----------------------¨¾§b------------------------ 
+	//-----------------------é˜²å‘†------------------------ 
 	while(1){
 		cout<<"Please enter the first stage you want to swap: ";
 		cin>>stage_1_2;
@@ -212,7 +212,7 @@ void swap_stage(int stage_n){
 			break;
 		}
 		else{
-			cout<<"The node doesn¡¦t exist. Please enter again."<<endl;
+			cout<<"The node doesnâ€™t exist. Please enter again."<<endl;
 			continue;
 		}
 	}
@@ -223,7 +223,7 @@ void swap_stage(int stage_n){
 			break;
 		}
 		else{
-			cout<<"The node doesn¡¦t exist. Please enter again."<<endl;
+			cout<<"The node doesnâ€™t exist. Please enter again."<<endl;
 			continue;
 		}
 	}
@@ -236,8 +236,8 @@ void swap_stage(int stage_n){
 		stage_2=stage_1_2;
 	}
 	resister_data temp;
-	//cout<<"­n¬Ovdd"<<my_vector[0].rp_p_nod[0]<<endl;
-//	cout<<"­ì¥»"<<endl;
+	//cout<<"è¦æ˜¯vdd"<<my_vector[0].rp_p_nod[0]<<endl;
+//	cout<<"åŸæœ¬"<<endl;
 //	for(int i=0;i<my_vector.size();i++){
 //		for(int j=0;j<my_vector[i].rp_value.size();j++){
 //		cout<<my_vector[i].rp_set[j]<<" "<<my_vector[i].rp_value[j]<<endl;				
@@ -280,7 +280,7 @@ void swap_stage(int stage_n){
 	
 	cout<<"The stage is Successfully swapped!"<<endl;
 	//---------------------------------------------------------------
-	//cout<<"«á¨Ó"<<endl;
+	//cout<<"å¾Œä¾†"<<endl;
 //	for(int i=0;i<my_vector.size();i++){
 //		for(int j=0;j<my_vector[i].rp_value.size();j++){
 //		cout<<my_vector[i].rp_set[j]<<" "<<my_vector[i].rp_value[j]<<endl;				
@@ -309,7 +309,7 @@ void merge_stage (int &stage_n){
 			break;
 		}
 		else{
-			cout<<"The node doesn¡¦t exist. Please enter again."<<endl;
+			cout<<"The node doesnâ€™t exist. Please enter again."<<endl;
 			continue;
 		}
 	}
@@ -320,7 +320,7 @@ void merge_stage (int &stage_n){
 			break;
 		}
 		else{
-			cout<<"The node doesn¡¦t exist. Please enter again."<<endl;
+			cout<<"The node doesnâ€™t exist. Please enter again."<<endl;
 			continue;
 		}
 	}
@@ -336,18 +336,18 @@ void merge_stage (int &stage_n){
 //		}			
 //	}
 	//--------------------------------------------------------------
-	//cout<<"­pºâ¹Lµ{ rp_idv_sum[mrg_stg_a-1], rp_idv_sum[mrg_stg_b-1], rs_idv_sum[mrg_stg_b-1]"
+	//cout<<"è¨ˆç®—éç¨‹ rp_idv_sum[mrg_stg_a-1], rp_idv_sum[mrg_stg_b-1], rs_idv_sum[mrg_stg_b-1]"
 			//<<rp_idv_sum[mrg_stg_a-1]<<" "<<rp_idv_sum[mrg_stg_b-1]<<" "<<rs_idv_sum[mrg_stg_b-1]<<endl;
-	//cout<<"rp_idv_sum[mrg_stg_a-1]«e "<<rp_idv_sum[mrg_stg_a-1]<<endl; 
+	//cout<<"rp_idv_sum[mrg_stg_a-1]å‰ "<<rp_idv_sum[mrg_stg_a-1]<<endl; 
 	rp_idv_sum[mrg_stg_a-1]=rp_idv_sum[mrg_stg_a-1]*(rp_idv_sum[mrg_stg_b-1]+rs_idv_sum[mrg_stg_b-1])/(rp_idv_sum[mrg_stg_a-1]+rp_idv_sum[mrg_stg_b-1]+rs_idv_sum[mrg_stg_b-1]);
-	//cout<<"rp_idv_sum[mrg_stg_a-1]«á "<<rp_idv_sum[mrg_stg_a-1]<<endl; 
+	//cout<<"rp_idv_sum[mrg_stg_a-1]å¾Œ "<<rp_idv_sum[mrg_stg_a-1]<<endl; 
 	my_vector[mrg_stg_a-1].rp_value[0]=rp_idv_sum[mrg_stg_a-1];
 	string index= to_string(mrg_stg_a);
 	
 	my_vector[mrg_stg_a-1].rp_set[0]="RP"+index;
 	string rp_name=my_vector[mrg_stg_a-1].rp_set[0];
-	double rp_value2=rp_idv_sum[mrg_stg_a-1];//¼È¦s¤@¤U 
-//	cout<<"ºâ§¹«á"<<endl; 
+	double rp_value2=rp_idv_sum[mrg_stg_a-1];//æš«å­˜ä¸€ä¸‹ 
+//	cout<<"ç®—å®Œå¾Œ"<<endl; 
 //	cout<<"my_vector[mrg_stg_a-1].rp_value[0] "<<my_vector[mrg_stg_a-1].rp_value[0]<<endl;
 //	cout<<"my_vector[mrg_stg_a-1].rp_set[0]"<<my_vector[mrg_stg_a-1].rp_set[0]<<endl;
 	cout<<"Resistors are merged into "<<my_vector[mrg_stg_a-1].rp_set[0]<<"."<<endl;
@@ -356,7 +356,7 @@ void merge_stage (int &stage_n){
 	//my_vector.pop_back();
 //	for(int i=0;i<my_vector.size();i++){
 //		for(int j=0;j<my_vector[i].rp_set.size();j++){
-//			cout<<"¥Ø«estage"<<i+1<<" ";
+//			cout<<"ç›®å‰stage"<<i+1<<" ";
 //				cout<<my_vector[i].rp_set[j]<<" "<<my_vector[i].rp_value[j]<<endl;;
 //			}
 //		}
@@ -393,17 +393,17 @@ int main(){
 	int loop_bol=1;
 	int read_or_not=0;
 	cout<<"*** Welcome to MySpice ***"<<endl;
-	//resister_data data;//¥H«ádata´N¬Oª«¥ó¹êÅé¤F 
+	//resister_data data;//ä»¥å¾Œdataå°±æ˜¯ç‰©ä»¶å¯¦é«”äº† 
 	resister_data temp;
 	string filename;
 	double vol_value;
-	int stage_num;//¦³´X­Óstage 
+	int stage_num;//æœ‰å¹¾å€‹stage 
 	string notuse1,notuse2,notuse3,notuse4,notuse5;
 	int slc;
 	int stage_1,stage_2;
 	//---------------------------------------------
-	//vector<resister_data>my_vector;//³Ì¤jªºvector 
-	//¿ï³æ 
+	//vector<resister_data>my_vector;//æœ€å¤§çš„vector 
+	//é¸å–® 
 	while(loop_bol==1){
 		cout<<"=========================================="<<endl;
 		cout<<"Please type 1 to input file"<<endl;
@@ -417,7 +417,7 @@ int main(){
 		cout<<"=========================================="<<endl;
 		//cout<<"Calculating... "<<endl;
 		//cout<<"The result is successfully calculated!"<<endl;
-		//cout¦Cªí
+		//coutåˆ—è¡¨
 		switch(slc){
 			case 1:{
 				cout<<"Please enter the name of the input file: ";
@@ -430,7 +430,7 @@ a:				cin>>filename;
 					}
 				cout<<"Loading the file... "<<endl;
 				cout<<"The input file successfully loaded!"<<endl;
-				//-----------------------------¥H¤U¶}©lÅªÀÉ------------------------------------------------------
+				//-----------------------------ä»¥ä¸‹é–‹å§‹è®€æª”------------------------------------------------------
 				input_file>>notuse1>>stage_num>>notuse2>>notuse3>>notuse4>>vol_value>>notuse5;
 				string rst_name;
 				string p_nod,n_nod;
@@ -460,7 +460,7 @@ a:				cin>>filename;
 						break;
 					}
 				}
-			//-----------------------ªì©l¤Æ----------------------- 
+			//-----------------------åˆå§‹åŒ–----------------------- 
 			for(int i=0;i<stage_num;i++){ 
 				double r_sum=0;
 				for(int j=0;j<my_vector[i].rs_value.size();j++){
@@ -489,7 +489,7 @@ a:				cin>>filename;
 //						cout<<my_vector[i].rs_set[j]<<" "<<my_vector[i].rs_p_nod[j]<<endl;
 //					}
 //			}
-			//cout<<"­n¬Ovdd"<<my_vector[0].rp_p_nod[0]<<endl;	
+			//cout<<"è¦æ˜¯vdd"<<my_vector[0].rp_p_nod[0]<<endl;	
 //				double r_total=0;
 //				for(int i=0;i<my_vector[stage_num-1].rp_value.size();i++){
 //						cout<<"my_vector[stage_n].rp_value[i]"<<my_vector[stage_num-1].rp_value[i]<<endl;
@@ -499,7 +499,7 @@ a:				cin>>filename;
 
 //				for(int i=0;i<my_vector.size();i++){
 //					for(int j=0;j<my_vector[i].rp_set.size();j++){
-//						cout<<"¥Ø«estage"<<i+1<<" ";
+//						cout<<"ç›®å‰stage"<<i+1<<" ";
 //						cout<<my_vector[i].rp_set[j]<<" "<<my_vector[i].rp_value[j]<<endl;;
 //					}
 //				}
